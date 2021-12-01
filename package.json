@@ -2,7 +2,7 @@
   "name": "k-popo",
   "description": "Pleasant Korean postposition resolver",
   "license": "MIT",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "homepage": "https://github.com/alattalatta/k-popo",
   "repository": "https://github.com/alattalatta/k-popo.git",
   "source": "src/index.ts",
