@@ -99,7 +99,7 @@ expect(ko`8개의 ${['bit', '빗']}(이)가 ${['byte', '바잍']}(을)를 만듭
 
 ### `(이)` token
 
-`(이)` token will simply remove itself when the word left of it has no _coda_ (종성), and resolves into `이` otherwhise. This makes it possible to use `(이)` in combination, such as:
+`(이)` token will simply remove itself when the word before it ends with no _coda_ (종성), and resolves into `이` otherwhise. This makes it possible to use `(이)` in combination, such as:
 
 - (이)랑: 한국이랑, 독일이랑, 러시아랑
 - (이)더라: 한국이더라, 독일이더라, 러시아더라
