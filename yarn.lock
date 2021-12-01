@@ -1617,7 +1617,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@swc/helpers@npm:^0.2.11, @swc/helpers@npm:^0.2.14":
+"@swc/helpers@npm:^0.2.11":
   version: 0.2.14
   resolution: "@swc/helpers@npm:0.2.14"
   checksum: c7b718924ee20d64bd784b64fae9a0e228f1a7a0474e8f772e7ff89282f3e2df6a2c1325da3b98a001b1a1823c93a378886320b9ce0761dcdbcb9f76d887de45
@@ -5937,25 +5937,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"josa@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "josa@workspace:."
-  dependencies:
-    "@alattalatta/eslint-config": ^0.2.0
-    "@alattalatta/prettier-config": ^0.2.0
-    "@parcel/packager-ts": ^2.0.1
-    "@parcel/transformer-typescript-types": ^2.0.1
-    "@swc/helpers": ^0.2.14
-    "@types/jest": ^27.0.3
-    eslint: ^8.3.0
-    jest: ^27.4.2
-    parcel: ^2.0.1
-    prettier: ^2.5.0
-    ts-jest: ^27.0.7
-    typescript: ^4.5.2
-  languageName: unknown
-  linkType: soft
-
 "js-tokens@npm:^3.0.0 || ^4.0.0, js-tokens@npm:^4.0.0":
   version: 4.0.0
   resolution: "js-tokens@npm:4.0.0"
@@ -6161,6 +6142,24 @@ __metadata:
   checksum: dcee22e6382ee5a6bd4187333a44b6420d9d079838119a07055d6e88d137dd0afadc97a2246152b0b65006bd5fc393112dc0cef01956a01a66c1713913953c66
   languageName: node
   linkType: hard
+
+"k-popo@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "k-popo@workspace:."
+  dependencies:
+    "@alattalatta/eslint-config": ^0.2.0
+    "@alattalatta/prettier-config": ^0.2.0
+    "@parcel/packager-ts": ^2.0.1
+    "@parcel/transformer-typescript-types": ^2.0.1
+    "@types/jest": ^27.0.3
+    eslint: ^8.3.0
+    jest: ^27.4.2
+    parcel: ^2.0.1
+    prettier: ^2.5.0
+    ts-jest: ^27.0.7
+    typescript: ^4.5.2
+  languageName: unknown
+  linkType: soft
 
 "kleur@npm:^3.0.3":
   version: 3.0.3

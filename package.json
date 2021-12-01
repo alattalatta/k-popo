@@ -1,7 +1,10 @@
 {
-  "name": "josa",
+  "name": "k-popo",
+  "description": "Pleasant Korean postposition resolver",
   "license": "MIT",
   "version": "1.0.0",
+  "homepage": "https://github.com/alattalatta/k-popo",
+  "repository": "https://github.com/alattalatta/k-popo.git",
   "source": "src/index.ts",
   "main": "dist/index.js",
   "module": "dist/module.js",
@@ -32,8 +35,5 @@
     "ts-jest": "^27.0.7",
     "typescript": "^4.5.2"
   },
-  "prettier": "@alattalatta/prettier-config",
-  "dependencies": {
-    "@swc/helpers": "^0.2.14"
-  }
+  "prettier": "@alattalatta/prettier-config"
 }
