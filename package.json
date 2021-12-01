@@ -35,5 +35,13 @@
     "ts-jest": "^27.0.7",
     "typescript": "^4.5.2"
   },
-  "prettier": "@alattalatta/prettier-config"
+  "prettier": "@alattalatta/prettier-config",
+  "keywords": [
+    "josa",
+    "korean",
+    "postposition",
+    "한국어",
+    "한글",
+    "조사"
+  ]
 }
