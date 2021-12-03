@@ -8,6 +8,8 @@
       "dom",
       "ES2021"
     ],
+    "module": "esnext",
+    "moduleResolution": "node",
     "emitDeclarationOnly": true,
     "outDir": "dist",
     "strict": true,
