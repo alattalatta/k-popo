@@ -1,6 +1,6 @@
 # K-POPO
 
-![](https://img.shields.io/bundlephobia/min/k-popo?style=flat-square) ![](https://img.shields.io/bundlephobia/minzip/k-popo?style=flat-square) ![](https://img.shields.io/npm/l/k-popo?color=red&style=flat-square)
+[![](https://img.shields.io/bundlephobia/min/k-popo?style=flat-square) ![](https://img.shields.io/bundlephobia/minzip/k-popo?style=flat-square)](https://bundlephobia.com/package/k-popo@latest) ![](https://img.shields.io/npm/l/k-popo?color=red&style=flat-square)
 
 Fast, less-than-1kB Korean _postposition_ (_josa_, 조사) resolver with a pleasant API.
 
