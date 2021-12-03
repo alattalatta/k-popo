@@ -15,7 +15,7 @@ ko`${schedule}(이)여서 추가할 수 없어요. ${role}(이)가 필요합니�
 // schedule=회의, role=어드민: 회의여서 추가할 수 없어요. 어드민이 필요합니다.
 ```
 
-K-POPO supports broad postpositions, yet is smaller and faster than other libraries. Run [`benchmark`](./k-popo/tree/master/benchmark) for bechmarks.
+K-POPO supports broad postpositions, yet is smaller and faster than other libraries. Run [`benchmark`](./benchmark) for bechmarks.
 
 - [API](#api)
 - [Available postposition tokens](#available-postposition-tokens)
