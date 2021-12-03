@@ -9,5 +9,6 @@
 # !/.yarn/cache
 /.pnp.*
 
+benchmark/benchmark
 dist
 .parcel-cache

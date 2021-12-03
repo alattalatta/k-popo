@@ -1,0 +1,23 @@
+{
+  "name": "benchmark",
+  "packageManager": "yarn@3.1.1",
+  "private": true,
+  "scripts": {
+    "bench": "node -r esbuild-register benchmark.ts",
+    "build": "esbuild benchmark.ts --minify --bundle"
+  },
+  "dependencies": {
+    "@ko_kr/text": "^0.2.0",
+    "@types/faker": "^5.5.9",
+    "auto-josa": "^1.0.0",
+    "benny": "^3.7.1",
+    "esbuild": "^0.14.1",
+    "esbuild-register": "^3.2.0",
+    "faker": "^5.5.3",
+    "k-popo": "workspace:^",
+    "typescript": "^4.5.2"
+  },
+  "devDependencies": {
+    "@alattalatta/eslint-config": "latest"
+  }
+}

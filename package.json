@@ -36,5 +36,8 @@
     "한국어",
     "한글",
     "조사"
+  ],
+  "workspaces": [
+    "benchmark"
   ]
 }
