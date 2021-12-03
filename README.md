@@ -2,7 +2,7 @@
 
 ![](https://img.shields.io/bundlephobia/min/k-popo?style=flat-square) ![](https://img.shields.io/bundlephobia/minzip/k-popo?style=flat-square) ![](https://img.shields.io/npm/l/k-popo?color=red&style=flat-square)
 
-Less-than-1KB Korean _postposition_ (_josa_, 조사) resolver with a pleasant API.
+Fast, less-than-1kB Korean _postposition_ (_josa_, 조사) resolver with a pleasant API.
 
 ```js
 import { ko } from 'k-popo'
@@ -15,6 +15,8 @@ ko`${schedule}(이)여서 추가할 수 없어요. ${role}(이)가 필요합니�
 // schedule=회의, role=어드민: 회의여서 추가할 수 없어요. 어드민이 필요합니다.
 ```
 
+K-POPO supports broad postpositions, yet is smaller and faster than other libraries. Run [`benchmark`](./k-popo/tree/master/benchmark) for bechmarks.
+
 - [API](#api)
 - [Available postposition tokens](#available-postposition-tokens)
 
@@ -22,7 +24,7 @@ ko`${schedule}(이)여서 추가할 수 없어요. ${role}(이)가 필요합니�
 
 ### `ko: (TemplateStringsArray, ...(string | [string, string])[]) => string`
 
-Resolves Korean postposition tokens placed right next to a template slot. See also [available postposition tokens](#Available_postposition_tokens) below.
+Resolves all Korean [_postposition tokens_](#available-postposition-tokens) placed right next to a placeholder.
 
 ```js
 expect(ko`${'디자이너'}(으)로서 좌시할 수 없다.`).toBe('디자이너로서 좌시할 수 없다.')
@@ -33,7 +35,7 @@ expect(ko`${`'너'`}(은)는 모른다.`).toBe(`'너'는 모른다.`)
 expect(ko`${`"당신"`}(은)는 모른다.`).toBe(`"당신"은 모른다.`)
 ```
 
-Grammatically correct postposition with closed parenthesis groups:
+Grammatically correct postpositions with closed parenthesis groups in placeholders:
 
 ```js
 expect(ko`${`너(당신)`}(은)는 모른다.`).toBe(`너(당신)는 모른다.`)
@@ -74,7 +76,7 @@ expect(ko`${'Undefined'}(은)는 좋지 않습니다. ${'System'}(이)가 싫어
 
 #### Providing pronunciation
 
-For English words or extremely large numbers, you may want to provide its pronunciation in order to get better results. Use `[word: string, pronunciation: string]` tuples:
+For English words or extremely large numbers, you may want to provide its pronunciation yourself to have better results. Use `[word: string, pronunciation: string]` tuples in placeholders:
 
 ```js
 expect(ko`${'8000000000000'}(이)가 있으면 어떻게 할래?`).toBe('8000000000000이 있으면 어떻게 할래?')
@@ -88,20 +90,20 @@ expect(ko`8개의 ${['bit', '빗']}(이)가 ${['byte', '바잍']}(을)를 만듭
 
 ## Available postposition tokens
 
-| Token  | Resolved value | Examples                           |
-| ------ | -------------- | ---------------------------------- |
-| (은)는 | 은/는          | 한국은, 독일은, 러시아는           |
-| (이)가 | 이/가          | 한국이, 독일이, 러시아가           |
-| (을)를 | 을/를          | 한국을, 독일을, 러시아를           |
-| (과)와 | 과/와          | 한국과, 독일과, 러시아와           |
-| (으)로 | 으로/로        | 한국으로, 독일로, 러시아로         |
-| (이)여 | 이어/여        | 한국이어서, 독일이어서, 러시아여서 |
-| (아)야 | 아/야          | 한국아, 독일아, 러시아야           |
-| (이)   | See below      | -                                  |
+| Token                 | Resolved value | Examples                           |
+| --------------------- | -------------- | ---------------------------------- |
+| `(은)는`              | 은/는          | 한국은, 독일은, 러시아는           |
+| `(이)가`              | 이/가          | 한국이, 독일이, 러시아가           |
+| `(을)를`              | 을/를          | 한국을, 독일을, 러시아를           |
+| `(과)와`              | 과/와          | 한국과, 독일과, 러시아와           |
+| `(으)로`[써, 서, ...] | 으로/로        | 한국으로, 독일로, 러시아로         |
+| `(이)여`              | 이어/여        | 한국이어서, 독일이어서, 러시아여서 |
+| `(아)야`              | 아/야          | 한국아, 독일아, 러시아야           |
+| `(이)`[랑, 면, ...]   | 이/            | See below                          |
 
 ### `(이)` token
 
-`(이)` token will simply remove itself when the word before it ends with no _coda_ (종성), and resolves into `이` otherwhise. This makes it possible to use `(이)` in combination, such as:
+The `(이)` token represents "이" _ending_ (어미), not a whole postposition. When the placeholder before the `(이)` token ends without a _final consonant_ (종성), it simply removes itself. Otherwise, the token becomes `이`. As a result, `(이)` can be used in conjunction with other characters to form almost all postpositions unlisted here. For examples:
 
 - (이)랑: 한국이랑, 독일이랑, 러시아랑
 - (이)더라: 한국이더라, 독일이더라, 러시아더라
