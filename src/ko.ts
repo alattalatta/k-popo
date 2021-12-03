@@ -2,15 +2,15 @@ import { getLastChar } from './getLastChar'
 
 type Parameter = string | readonly [display: string, pronunciation: string]
 
-const ppMap: readonly (readonly [string, string])[] = [
-  ['(은)는', '은0는'],
-  ['(이)가', '이0가'],
-  ['(을)를', '을0를'],
-  ['(과)와', '과0와'],
-  ['(으)로', '으로0로'],
-  ['(이)여', '이어0여'],
-  ['(이)', '이0'],
-  ['(아)야', '아0야'],
+const ppMap: readonly [string, readonly [string, string]][] = [
+  ['(은)는', ['은', '는']],
+  ['(이)가', ['이', '가']],
+  ['(을)를', ['을', '를']],
+  ['(과)와', ['과', '와']],
+  ['(으)로', ['으로', '로']],
+  ['(이)여', ['이어', '여']],
+  ['(이)', ['이', '']],
+  ['(아)야', ['아', '야']],
 ]
 const foreignCharsRecord: Readonly<Record<string, number>> = {
   0: 1,
@@ -29,14 +29,8 @@ const foreignCharsRecord: Readonly<Record<string, number>> = {
   p: 1,
 }
 
-const isKoreanCharacter = (char: string): boolean => {
-  return char >= '가' && char <= '힣'
-}
-
-const extractCodaCode = (char: string): number => (char.charCodeAt(0) - 0xac00) % 28
-
 const hasNoCoda = (char: string, ignoreRieul: boolean): boolean => {
-  const coda = isKoreanCharacter(char) ? extractCodaCode(char) : foreignCharsRecord[char] || 0
+  const coda = char >= '가' && char <= '힣' ? (char.charCodeAt(0) - 0xac00) % 28 : foreignCharsRecord[char] || 0
   return !coda || (ignoreRieul && coda == 8)
 }
 
@@ -77,9 +71,8 @@ const ko = (template: Readonly<TemplateStringsArray>, ...words: readonly Paramet
     const rightString = template[index + 1]
     const foundToken = ppMap.find((pair) => rightString.startsWith(pair[0]))
     const current = foundToken
-      ? foundToken[1].split(0 as unknown as string)[
-          +hasNoCoda(getLastChar(withoutPronunciation ? word : word[1]), foundToken[0] == '(으)로')
-        ] + rightString.slice(foundToken[0].length)
+      ? foundToken[1][+hasNoCoda(getLastChar(withoutPronunciation ? word : word[1]), foundToken[0] == '(으)로')] +
+        rightString.slice(foundToken[0].length)
       : rightString
 
     return acc + (withoutPronunciation ? word : word[0]) + current
