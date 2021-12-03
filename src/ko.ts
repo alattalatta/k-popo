@@ -37,7 +37,7 @@ const extractCodaCode = (char: string): number => (char.charCodeAt(0) - 0xac00) 
 
 const hasNoCoda = (char: string, ignoreRieul: boolean): boolean => {
   const coda = isKoreanCharacter(char) ? extractCodaCode(char) : foreignCharsRecord[char] || 0
-  return coda === 0 || (ignoreRieul && coda === 8)
+  return !coda || (ignoreRieul && coda == 8)
 }
 
 /**
@@ -70,19 +70,19 @@ const hasNoCoda = (char: string, ignoreRieul: boolean): boolean => {
  */
 const ko = (template: Readonly<TemplateStringsArray>, ...words: readonly Parameter[]): string =>
   words.reduce<string>((acc, word, index) => {
-    const withoutPronunciation = typeof word === 'string'
-    const prev = acc + (withoutPronunciation ? word : word[0])
+    // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
+    const withoutPronunciation = '' + word === word // typeof string
 
     // template is always 1 length longer, this should be safe
     const rightString = template[index + 1]
     const foundToken = ppMap.find((pair) => rightString.startsWith(pair[0]))
     const current = foundToken
       ? foundToken[1].split(0 as unknown as string)[
-          +hasNoCoda(getLastChar(withoutPronunciation ? word : word[1]), foundToken[0] === '(으)로')
+          +hasNoCoda(getLastChar(withoutPronunciation ? word : word[1]), foundToken[0] == '(으)로')
         ] + rightString.slice(foundToken[0].length)
       : rightString
 
-    return prev + current
+    return acc + (withoutPronunciation ? word : word[0]) + current
   }, template[0])
 
 export { ko }
