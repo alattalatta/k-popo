@@ -2,16 +2,16 @@ import { getLastChar } from './getLastChar'
 
 type Parameter = string | readonly [display: string, pronunciation: string]
 
-const ppRecord: Readonly<Record<string, string>> = {
-  '(은)는': '은0는',
-  '(이)가': '이0가',
-  '(을)를': '을0를',
-  '(과)와': '과0와',
-  '(으)로': '으로0로',
-  '(이)여': '이어0여',
-  '(이)': '이0',
-  '(아)야': '아0야',
-}
+const ppMap: readonly (readonly [string, string])[] = [
+  ['(은)는', '은0는'],
+  ['(이)가', '이0가'],
+  ['(을)를', '을0를'],
+  ['(과)와', '과0와'],
+  ['(으)로', '으로0로'],
+  ['(이)여', '이어0여'],
+  ['(이)', '이0'],
+  ['(아)야', '아0야'],
+]
 const foreignCharsRecord: Readonly<Record<string, number>> = {
   0: 1,
   1: 8,
@@ -71,17 +71,18 @@ const hasNoCoda = (char: string, ignoreRieul: boolean): boolean => {
 const ko = (template: Readonly<TemplateStringsArray>, ...words: readonly Parameter[]): string =>
   words.reduce<string>((acc, word, index) => {
     const withoutPronunciation = typeof word === 'string'
+    const prev = acc + (withoutPronunciation ? word : word[0])
 
-    return (
-      acc +
-      (withoutPronunciation ? word : word[0]) +
-      // template is always 1 length longer, this should be safe
-      template[index + 1].replace(/^\(은\)는|\(이\)가|\(을\)를|\(과\)와|\(으\)로|\(이\)여|\(이\)|\(아\)야/, (match) => {
-        return ppRecord[match].split(0 as unknown as string)[
-          +hasNoCoda(getLastChar(withoutPronunciation ? word : word[1]), match === '(으)로')
-        ]
-      })
-    )
+    // template is always 1 length longer, this should be safe
+    const rightString = template[index + 1]
+    const foundToken = ppMap.find((pair) => rightString.startsWith(pair[0]))
+    const current = foundToken
+      ? foundToken[1].split(0 as unknown as string)[
+          +hasNoCoda(getLastChar(withoutPronunciation ? word : word[1]), foundToken[0] === '(으)로')
+        ] + rightString.slice(foundToken[0].length)
+      : rightString
+
+    return prev + current
   }, template[0])
 
 export { ko }
