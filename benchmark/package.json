@@ -3,8 +3,7 @@
   "packageManager": "yarn@3.1.1",
   "private": true,
   "scripts": {
-    "bench": "node -r esbuild-register benchmark.ts",
-    "build": "esbuild benchmark.ts --minify --bundle"
+    "bench": "node -r esbuild-register benchmark.ts"
   },
   "dependencies": {
     "@ko_kr/text": "^0.2.0",

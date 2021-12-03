@@ -10,7 +10,19 @@ faker.locale = 'ko'
 const name = (): string => faker.name.firstName()
 
 void b.suite(
-  'Benchmark',
+  '1 placeholder',
+
+  b.add('k-popo', () => ko`${name()}(이)가`),
+  b.add('@ko_kr/text', () => text`${name()}이`),
+  b.add('auto-josa', () => autoJosa`${name()}이`),
+  b.add('josa', () => josa(`${name()}#{이} ${name()}#{을}`)),
+  b.cycle(),
+  b.complete(),
+  b.save({ file: 'one', format: 'table.html' }),
+)
+
+void b.suite(
+  '6 placeholders',
 
   b.add(
     'k-popo',
@@ -31,5 +43,5 @@ void b.suite(
   ),
   b.cycle(),
   b.complete(),
-  b.save({ file: 'result', format: 'table.html' }),
+  b.save({ file: 'six', format: 'table.html' }),
 )
