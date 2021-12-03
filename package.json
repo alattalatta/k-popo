@@ -9,14 +9,6 @@
   "main": "dist/index.js",
   "module": "dist/module.js",
   "types": "dist/types.d.ts",
-  "targets": {
-    "main": {
-      "optimize": true
-    },
-    "module": {
-      "optimize": true
-    }
-  },
   "files": [
     "dist"
   ],
