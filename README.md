@@ -4,6 +4,16 @@
 
 Fast, less-than-1kB Korean _postposition_ (_josa_, 조사) resolver with a pleasant API.
 
+![Before: 야근은(는) 올바른 명령이(가) 아닙니다. After: 야근은 올바른 명령이 아닙니다.](./alert.png)
+
+K-POPO supports broad postpositions, yet is smaller and faster than other libraries. Run [`benchmark`](./benchmark) for bechmarks.
+
+- [Example](#example)
+- [API](#api)
+- [Available postposition tokens](#available-postposition-tokens)
+
+## Example
+
 ```js
 import { ko } from 'k-popo'
 
@@ -14,11 +24,6 @@ ko`${schedule}(이)여서 추가할 수 없어요. ${role}(이)가 필요합니�
 // schedule=평일, role=관리자: 평일이어서 추가할 수 없어요. 관리자가 필요합니다.
 // schedule=회의, role=어드민: 회의여서 추가할 수 없어요. 어드민이 필요합니다.
 ```
-
-K-POPO supports broad postpositions, yet is smaller and faster than other libraries. Run [`benchmark`](./benchmark) for bechmarks.
-
-- [API](#api)
-- [Available postposition tokens](#available-postposition-tokens)
 
 ## API
 
@@ -59,7 +64,7 @@ expect(ko`${'40000'}(으)로 곱하면 안전하지 않습니다.`).toBe('40000�
 expect(ko`${'40,000'}(으)로 곱하면 안전하지 않습니다.`).toBe('40,000으로 곱하면 안전하지 않습니다.')
 ```
 
-> **Note:** `ko` does not guarantee correctness for numbers starting from one trillion. (1,000,000,000,000, "1조")
+> **Note:** For numbers beginning with one trillion (1,000,000,000,000, "1조"), `ko` can't guarantee correctness.
 
 It can work with English words as well:
 
@@ -72,12 +77,12 @@ expect(ko`${'Undefined'}(은)는 좋지 않습니다. ${'System'}(이)가 싫어
 )
 ```
 
-> **Note:** `ko` does not guarantee correctness for English words.
+> **Note:** For English words, `ko` can't guarantee correctness.
 
 #### Providing pronunciation
 
-For English words or extremely large numbers, you may want to provide its pronunciation yourself to have better results. Use `[word: string, pronunciation: string]` tuples in placeholders:
-
+To achieve better results, you may opt to supply pronunciations for English words or huge numbers. Use `[word: string, pronunciation: string]` tuples in placeholders:
+ 
 ```js
 expect(ko`${'8000000000000'}(이)가 있으면 어떻게 할래?`).toBe('8000000000000이 있으면 어떻게 할래?')
 expect(ko`${['8000000000000', '팔조']}(이)가 있으면 어떻게 할래?`).toBe('8000000000000가 있으면 어떻게 할래?')
@@ -103,7 +108,7 @@ expect(ko`8개의 ${['bit', '빗']}(이)가 ${['byte', '바잍']}(을)를 만듭
 
 ### `(이)` token
 
-The `(이)` token represents "이" _ending_ (어미), not a whole postposition. When the placeholder before the `(이)` token ends without a _final consonant_ (종성), it simply removes itself. Otherwise, the token becomes `이`. As a result, `(이)` can be used in conjunction with other characters to form almost all postpositions unlisted here. For examples:
+The `(이)` token represents "이" _ending_ (어미), not a whole postposition. When the placeholder before the `(이)` token ends without a _final consonant_ (종성), it simply removes itself. Otherwise, the token becomes `이`. As a result, `(이)` can be used in conjunction with other characters to form almost all postpositions. For examples:
 
 - (이)랑: 한국이랑, 독일이랑, 러시아랑
 - (이)더라: 한국이더라, 독일이더라, 러시아더라
