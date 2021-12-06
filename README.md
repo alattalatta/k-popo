@@ -6,7 +6,7 @@ Fast, less-than-1kB Korean _postposition_ (_josa_, 조사) resolver with a pleas
 
 ![Before: 야근은(는) 올바른 명령이(가) 아닙니다. After: 야근은 올바른 명령이 아닙니다.](./alert.png)
 
-K-POPO supports broad postpositions, yet is smaller and faster than other libraries. Run [`benchmark`](./benchmark) for bechmarks.
+K-POPO supports broad postpositions, yet is smaller and faster than other tagged literal/parsing libraries. Run [`benchmark`](./benchmark) for bechmarks.
 
 - [Example](#example)
 - [API](#api)

@@ -49,7 +49,7 @@ const hasNoCoda = (char: string, ignoreRieul: boolean): boolean => {
  * // schedule=회의, role=어드민: 회의여서 추가할 수 없어요. 어드민이 필요합니다.
  * ```
  *
- * Tests against huge numbers or English words aren't perfect;
+ * Tests against large numbers or English words aren't perfect;
  * you may want to provide its pronunciation as well, if possible.
  *
  * ```js
