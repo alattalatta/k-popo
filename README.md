@@ -6,7 +6,7 @@ Fast, less-than-1kB Korean _postposition_ (_josa_, 조사) resolver with a pleas
 
 ![Before: 야근은(는) 올바른 명령이(가) 아닙니다. After: 야근은 올바른 명령이 아닙니다.](./alert.png)
 
-K-POPO supports broad postpositions, yet is smaller and faster than other tagged literal/parsing libraries. Run [`benchmark`](./benchmark) for bechmarks.
+K-POPO supports broad postpositions, yet is the smallest tagged literal library. K-POPO is also one of the fastest, run [`benchmark`](./benchmark) for bechmarks.
 
 - [Example](#example)
 - [API](#api)
@@ -27,7 +27,7 @@ ko`${schedule}(이)여서 추가할 수 없어요. ${role}(이)가 필요합니�
 
 ## API
 
-### `ko: (TemplateStringsArray, ...(string | [string, string])[]) => string`
+### `ko: (template: TemplateStringsArray, ...words: (string | [string, string])[]) => string`
 
 Resolves all Korean [_postposition tokens_](#available-postposition-tokens) placed right next to a placeholder.
 
@@ -92,6 +92,24 @@ expect(ko`8개의 ${['bit', '빗']}(이)가 ${['byte', '바잍']}(을)를 만듭
 ```
 
 > **Note:** Obviously, you have to get the pronunciation for the word somehow.
+
+### `resolve: (tokenString: string, testString: string) => [token: string, postposition: string] | null`
+
+Resolve a [_postposition tokens_](#available-postposition-tokens) in `tokenString` against the `testString`.
+
+`tokenString` **must** start with the one of available tokens, e.g. `'(이)더라'` and `'(은)는 모른다'`. `resolve()` will extract the token in the `tokenString`, and include it in its return value.
+
+```js
+expect(resolve('(은)는 모른다', '당신')).toEqual(['(은)는', '은'])
+expect(resolve('(은)는 모른다', '너')).toEqual(['(은)는', '는'])
+```
+
+If the `tokenString` does not start with a tokens, `resolve()` returns `null`.
+
+```js
+expect(resolve('모른다', '당신')).toBeNull()
+expect(resolve('(아)하', '당신')).toBeNull()
+```
 
 ## Available postposition tokens
 
