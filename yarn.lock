@@ -739,6 +739,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@faker-js/faker@npm:^6.0.0-alpha.7":
+  version: 6.0.0-alpha.7
+  resolution: "@faker-js/faker@npm:6.0.0-alpha.7"
+  checksum: 1322aa3b8c5975fdd7cf826caecde71708bb73d21b3cbcf8dca8ba451398857f3d8c0946b65d5b0927bfddc9b9d71353ce3531264ad9a570948452053ee57f0c
+  languageName: node
+  linkType: hard
+
 "@gar/promisify@npm:^1.0.1":
   version: 1.1.2
   resolution: "@gar/promisify@npm:1.1.2"
@@ -1999,13 +2006,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/faker@npm:^5.5.9":
-  version: 5.5.9
-  resolution: "@types/faker@npm:5.5.9"
-  checksum: c2cbd082abe29047c89cf29b86257e582d2a177a9d1ed3abf99aa1cc025d5e8a3d201dfaddf8441bfcc57ed43e4da80e666951e1c23a5b759ac441a5855b5c36
-  languageName: node
-  linkType: hard
-
 "@types/graceful-fs@npm:^4.1.2":
   version: 4.1.5
   resolution: "@types/graceful-fs@npm:4.1.5"
@@ -2607,14 +2607,13 @@ __metadata:
   resolution: "benchmark@workspace:benchmark"
   dependencies:
     "@alattalatta/eslint-config": latest
+    "@faker-js/faker": ^6.0.0-alpha.7
     "@ko_kr/text": ^0.2.0
-    "@types/faker": ^5.5.9
     "@types/josa": ^3.0.2
     auto-josa: ^1.0.0
     benny: ^3.7.1
     esbuild: ^0.14.23
     esbuild-register: ^3.3.2
-    faker: ^5.5.3
     josa: ^3.0.1
     k-popo: "workspace:^"
     kopo: ^1.1.8
@@ -4129,13 +4128,6 @@ __metadata:
     jest-matcher-utils: ^27.5.1
     jest-message-util: ^27.5.1
   checksum: b2c66beb52de53ef1872165aace40224e722bca3c2274c54cfa74b6d617d55cf0ccdbf36783ccd64dbea501b280098ed33fd0b207d4f15bc03cd3c7a24364a6a
-  languageName: node
-  linkType: hard
-
-"faker@npm:^5.5.3":
-  version: 5.5.3
-  resolution: "faker@npm:5.5.3"
-  checksum: 684fd64c8d3897e54248f95b4f6319f75d97691b8500cd13adf4af2c28f9204f766c1d1aaa6b41338f0beaaa87256c3132f8708a1a8f189d122b92f6b98081c3
   languageName: node
   linkType: hard
 

@@ -1,7 +1,7 @@
+import faker from '@faker-js/faker'
 import text from '@ko_kr/text'
 import { josa as autoJosa } from 'auto-josa'
 import b from 'benny'
-import faker from 'faker'
 import { josa } from 'josa'
 import { ko } from 'k-popo'
 

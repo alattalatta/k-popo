@@ -6,14 +6,13 @@
     "bench": "node -r esbuild-register benchmark.ts"
   },
   "dependencies": {
+    "@faker-js/faker": "^6.0.0-alpha.7",
     "@ko_kr/text": "^0.2.0",
-    "@types/faker": "^5.5.9",
     "@types/josa": "^3.0.2",
     "auto-josa": "^1.0.0",
     "benny": "^3.7.1",
     "esbuild": "^0.14.23",
     "esbuild-register": "^3.3.2",
-    "faker": "^5.5.3",
     "josa": "^3.0.1",
     "k-popo": "workspace:^",
     "kopo": "^1.1.8",
