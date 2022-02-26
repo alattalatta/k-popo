@@ -8,6 +8,10 @@
     "type": "git",
     "url": "https://github.com/alattalatta/k-popo.git"
   },
+  "scripts": {
+    "build": "parcel build",
+    "test": "jest"
+  },
   "source": "src/index.ts",
   "main": "dist/index.js",
   "module": "dist/module.js",
@@ -26,6 +30,7 @@
   "devDependencies": {
     "@alattalatta/eslint-config": "latest",
     "@alattalatta/prettier-config": "latest",
+    "@parcel/core": "^2.3.2",
     "@parcel/packager-ts": "^2.3.2",
     "@parcel/transformer-typescript-types": "^2.3.2",
     "@types/jest": "^27.4.1",

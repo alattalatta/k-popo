@@ -1303,7 +1303,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@parcel/core@npm:2.3.2":
+"@parcel/core@npm:2.3.2, @parcel/core@npm:^2.3.2":
   version: 2.3.2
   resolution: "@parcel/core@npm:2.3.2"
   dependencies:
@@ -5995,6 +5995,7 @@ __metadata:
   dependencies:
     "@alattalatta/eslint-config": latest
     "@alattalatta/prettier-config": latest
+    "@parcel/core": ^2.3.2
     "@parcel/packager-ts": ^2.3.2
     "@parcel/transformer-typescript-types": ^2.3.2
     "@types/jest": ^27.4.1
