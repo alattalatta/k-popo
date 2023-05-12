@@ -31,6 +31,7 @@
   "devDependencies": {
     "@alattalatta/eslint-config": "latest",
     "@alattalatta/prettier-config": "latest",
+    "@changesets/cli": "^2.26.1",
     "@parcel/core": "^2.8.3",
     "@parcel/packager-ts": "^2.8.3",
     "@parcel/transformer-typescript-types": "^2.8.3",
