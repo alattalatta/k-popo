@@ -1,22 +1,22 @@
 {
   "name": "benchmark",
-  "packageManager": "yarn@3.1.1",
   "private": true,
+  "type": "module",
   "scripts": {
-    "run": "node -r esbuild-register benchmark.ts"
+    "bench": "node benchmark.js"
   },
   "dependencies": {
-    "@faker-js/faker": "^6.0.0-alpha.7",
-    "@ko_kr/text": "^0.2.0",
+    "@faker-js/faker": "^8.0.0",
+    "@kokr/text": "^0.4.1",
     "@types/josa": "^3.0.2",
     "auto-josa": "^1.0.0",
     "benny": "^3.7.1",
-    "esbuild": "^0.14.23",
-    "esbuild-register": "^3.3.2",
+    "esbuild": "^0.17.18",
+    "esbuild-register": "^3.4.2",
     "josa": "^3.0.1",
     "k-popo": "workspace:^",
     "kopo": "^1.1.8",
-    "typescript": "^4.5.5"
+    "typescript": "^5.0.4"
   },
   "devDependencies": {
     "@alattalatta/eslint-config": "latest"

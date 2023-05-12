@@ -1,15 +1,18 @@
+const path = require('node:path')
 require('@alattalatta/eslint-config/patch')
+
+const tsconfig = path.join(process.cwd(), 'tsconfig.json')
 
 module.exports = {
   root: true,
   extends: ['@alattalatta/eslint-config'],
   parserOptions: {
-    project: ['./tsconfig.json'],
+    project: [tsconfig],
   },
   settings: {
     'import/resolver': {
       typescript: {
-        project: './tsconfig.json',
+        project: tsconfig,
       },
     },
   },

@@ -12,9 +12,6 @@
     "strict": true,
     "target": "ES2021"
   },
-  "ts-node": {
-    "swc": true
-  },
   "exclude": ["node_modules/"],
   "include": ["**/*.ts"]
 }
