@@ -2,7 +2,7 @@
 
 [![](https://img.shields.io/bundlephobia/min/k-popo?style=flat-square) ![](https://img.shields.io/bundlephobia/minzip/k-popo?style=flat-square)](https://bundlephobia.com/package/k-popo@latest) ![](https://img.shields.io/npm/l/k-popo?color=red&style=flat-square)
 
-Fast, less-than-1kB Korean _postposition_ (_josa_, 조사) resolver with a pleasant API.
+Fast, less-than-1kB Korean _postposition_ (_josa_, 조사) resolver with pleasant API.
 
 ![Before: 야근은(는) 올바른 명령이(가) 아닙니다. After: 야근은 올바른 명령이 아닙니다.](./alert.png)
 
@@ -82,7 +82,7 @@ expect(ko`${'Undefined'}(은)는 좋지 않습니다. ${'System'}(이)가 싫어
 #### Providing pronunciation
 
 To achieve better results, you may opt to supply pronunciations for English words or huge numbers. Use `[word: string, pronunciation: string]` tuples in placeholders:
- 
+
 ```js
 expect(ko`${'8000000000000'}(이)가 있으면 어떻게 할래?`).toBe('8000000000000이 있으면 어떻게 할래?')
 expect(ko`${['8000000000000', '팔조']}(이)가 있으면 어떻게 할래?`).toBe('8000000000000가 있으면 어떻게 할래?')
