@@ -4,10 +4,7 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
-    "lib": [
-      "dom",
-      "ES2021"
-    ],
+    "lib": ["dom", "ES2021"],
     "module": "esnext",
     "moduleResolution": "node",
     "emitDeclarationOnly": true,
@@ -15,10 +12,9 @@
     "strict": true,
     "target": "ES2021"
   },
-  "exclude": [
-    "node_modules/"
-  ],
-  "include": [
-    "**/*.ts"
-  ]
+  "ts-node": {
+    "swc": true
+  },
+  "exclude": ["node_modules/"],
+  "include": ["**/*.ts"]
 }
