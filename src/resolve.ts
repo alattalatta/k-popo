@@ -28,7 +28,7 @@ const foreignCharsRecord: Readonly<Record<string, number>> = {
 }
 
 const hasNoCoda = (char: string, ignoreRieul: boolean): boolean => {
-  const coda = char >= '가' && char <= '힣' ? (char.charCodeAt(0) - 0xac00) % 28 : foreignCharsRecord[char] || 0
+  let coda = char >= '가' && char <= '힣' ? (char.charCodeAt(0) - 0xac00) % 28 : foreignCharsRecord[char] || 0
   return !coda || (ignoreRieul && coda == 8)
 }
 
@@ -48,7 +48,7 @@ const hasNoCoda = (char: string, ignoreRieul: boolean): boolean => {
  * // ['(이)', '']
  */
 const resolve = (tokenString: string, testString: string): readonly [token: string, postposition: string] | null => {
-  const foundPair = ppMap.find((pair) => tokenString.startsWith(pair[0]))
+  let foundPair = ppMap.find((pair) => tokenString.startsWith(pair[0]))
   return foundPair ? [foundPair[0], foundPair[1][+hasNoCoda(getLastChar(testString), foundPair[0] == '(으)로')]] : null
 }
 

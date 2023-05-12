@@ -19,15 +19,15 @@ type Parameter = string | readonly [display: string, pronunciation: string]
 const ko = (template: Readonly<TemplateStringsArray>, ...words: readonly Parameter[]): string =>
   words.reduce<string>((acc, word, index) => {
     // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
-    const withoutPronunciation = '' + word === word // typeof string
+    let withoutPronunciation = '' + word === word // typeof string
 
     // template is always 1 length longer, this should be safe
-    const succeeding = template[index + 1]
-    const tokenInfo = resolve(succeeding, withoutPronunciation ? word : word[1])
+    let succeeding = template[index + 1]
+    let tokenInfo = resolve(succeeding, withoutPronunciation ? (word as string) : word[1])
 
     return (
       acc +
-      (withoutPronunciation ? word : word[0]) +
+      (withoutPronunciation ? (word as string) : word[0]) +
       (tokenInfo ? tokenInfo[1] + succeeding.slice(tokenInfo[0].length) : succeeding)
     )
   }, template[0])

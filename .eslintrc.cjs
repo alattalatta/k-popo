@@ -6,6 +6,9 @@ const tsconfig = path.join(process.cwd(), 'tsconfig.json')
 module.exports = {
   root: true,
   extends: ['@alattalatta/eslint-config'],
+  rules: {
+    'prefer-const': 'off',
+  },
   parserOptions: {
     project: [tsconfig],
   },

@@ -1,7 +1,7 @@
 const getLastChar = (str: string): string => {
-  const stripped = str.replace(/\([^)]*\)/gi, '')
+  let stripped = str.replace(/\([^)]*\)/g, '')
 
-  const lastChar = stripped[stripped.length - 1]
+  let lastChar = stripped[stripped.length - 1]
   if (lastChar == `'` || lastChar == `"`) {
     return stripped[stripped.length - 2]
   }
