@@ -48,10 +48,8 @@ const hasNoCoda = (char: string, ignoreRieul: boolean): boolean => {
  * // ['(이)', '']
  */
 const resolve = (tokenString: string, testString: string): readonly [token: string, postposition: string] | null => {
-  const foundToken = ppMap.find((pair) => tokenString.startsWith(pair[0]))
-  return foundToken
-    ? [foundToken[0], foundToken[1][+hasNoCoda(getLastChar(testString), foundToken[0] == '(으)로')]]
-    : null
+  const foundPair = ppMap.find((pair) => tokenString.startsWith(pair[0]))
+  return foundPair ? [foundPair[0], foundPair[1][+hasNoCoda(getLastChar(testString), foundPair[0] == '(으)로')]] : null
 }
 
 export { resolve }

@@ -1,8 +1,7 @@
 > 1%
-last 2 versions
 
-android >= 4.4
-ios >= 10
+chrome >= 50
+ios >= 12
 
 not dead
 not ie > 0
