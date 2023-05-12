@@ -1,4 +1,4 @@
-# K-POPO
+# k-popo
 
 [![](https://img.shields.io/bundlephobia/min/k-popo?style=flat-square) ![](https://img.shields.io/bundlephobia/minzip/k-popo?style=flat-square)](https://bundlephobia.com/package/k-popo@latest) ![](https://img.shields.io/npm/l/k-popo?color=red&style=flat-square)
 
@@ -6,7 +6,7 @@ Fast, less-than-1kB Korean _postposition_ (_josa_, 조사) resolver with pleasan
 
 ![Before: 야근은(는) 올바른 명령이(가) 아닙니다. After: 야근은 올바른 명령이 아닙니다.](./alert.png)
 
-K-POPO supports broad postpositions, yet is the smallest tagged literal library. K-POPO is also one of the fastest, run [`benchmark`](./benchmark) for bechmarks.
+k-popo supports broad postpositions, yet is the smallest tagged literal library. k-popo is also one of the fastest, run [`benchmark`](./benchmark) for bechmarks.
 
 - [Example](#example)
 - [API](#api)
