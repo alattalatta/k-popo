@@ -2,11 +2,11 @@
 
 [![](https://img.shields.io/bundlephobia/min/k-popo?style=flat-square) ![](https://img.shields.io/bundlephobia/minzip/k-popo?style=flat-square)](https://bundlephobia.com/package/k-popo@latest) ![](https://img.shields.io/npm/l/k-popo?color=red&style=flat-square)
 
-Fast, less-than-1kB Korean _postposition_ (_josa_, 조사) resolver with pleasant API.
+Fast, under-1kB Korean _postposition_ (_josa_, 조사) resolver with a pleasant API.
 
 ![Before: 야근은(는) 올바른 명령이(가) 아닙니다. After: 야근은 올바른 명령이 아닙니다.](./alert.png)
 
-k-popo supports broad postpositions, yet is the smallest tagged literal library. k-popo is also one of the fastest, run [`benchmark`](./benchmark) for bechmarks.
+k-popo supports a wide range of postpositions, yet is the smallest tagged literal based library. k-popo is also one of the fastest, run [`benchmark`](./benchmark) for bechmarks.
 
 - [Example](#example)
 - [API](#api)
@@ -29,7 +29,7 @@ ko`${schedule}(이)여서 추가할 수 없어요. ${role}(이)가 필요합니�
 
 ### `ko: (template: TemplateStringsArray, ...words: (string | [string, string])[]) => string`
 
-Resolves all Korean [_postposition tokens_](#available-postposition-tokens) placed right next to a placeholder.
+Resolves all Korean [_postposition tokens_](#available-postposition-tokens) that are placed directly after a placeholder.
 
 ```js
 expect(ko`${'디자이너'}(으)로서 좌시할 수 없다.`).toBe('디자이너로서 좌시할 수 없다.')
@@ -64,9 +64,9 @@ expect(ko`${'40000'}(으)로 곱하면 안전하지 않습니다.`).toBe('40000�
 expect(ko`${'40,000'}(으)로 곱하면 안전하지 않습니다.`).toBe('40,000으로 곱하면 안전하지 않습니다.')
 ```
 
-> **Note:** For numbers beginning with one trillion (1,000,000,000,000, "1조"), `ko` can't guarantee correctness.
+> **Note:** `ko` cannot guarantee accuracy for numbers equal to, or greater than, one trillion (1,000,000,000,000, "1조"),
 
-It can work with English words as well:
+It works with English words as well:
 
 ```js
 expect(ko`${'Null'}(은)는 좋지 않습니다. ${'Editor'}(이)가 싫어합니다.`).toBe(
@@ -77,11 +77,11 @@ expect(ko`${'Undefined'}(은)는 좋지 않습니다. ${'System'}(이)가 싫어
 )
 ```
 
-> **Note:** For English words, `ko` can't guarantee correctness.
+> **Note:** `ko` can't guarantee correctness for English words.
 
 #### Providing pronunciation
 
-To achieve better results, you may opt to supply pronunciations for English words or huge numbers. Use `[word: string, pronunciation: string]` tuples in placeholders:
+For improved results, you may choose to provide pronunciations for English words or large numbers. Utilize `[word: string, pronunciation: string]` tuples in placeholders:
 
 ```js
 expect(ko`${'8000000000000'}(이)가 있으면 어떻게 할래?`).toBe('8000000000000이 있으면 어떻게 할래?')
@@ -91,20 +91,20 @@ expect(ko`8개의 ${'bit'}(이)가 ${'byte'}(을)를 만듭니다.`).toBe('8개�
 expect(ko`8개의 ${['bit', '빗']}(이)가 ${['byte', '바잍']}(을)를 만듭니다.`).toBe('8개의 bit이 byte을 만듭니다.')
 ```
 
-> **Note:** Obviously, you have to get the pronunciation for the word somehow.
+> **Note:** Clearly, you'll need to obtain the pronunciation for the word in some way.
 
 ### `resolve: (tokenString: string, testString: string) => [token: string, postposition: string] | null`
 
-Resolve a [_postposition tokens_](#available-postposition-tokens) in `tokenString` against the `testString`.
+Determines a [_postposition token_](#available-postposition-tokens) within `tokenString` based on the `testString`.
 
-`tokenString` **must** start with the one of available tokens, e.g. `'(이)더라'` and `'(은)는 모른다'`. `resolve()` will extract the token in the `tokenString`, and include it in its return value.
+`tokenString` **must** start with one of the available tokens, such as `'(이)더라'` or `'(은)는 모른다'`. The `resolve()` will extract the token from the `tokenString` and include it in its return value.
 
 ```js
 expect(resolve('(은)는 모른다', '당신')).toEqual(['(은)는', '은'])
 expect(resolve('(은)는 모른다', '너')).toEqual(['(은)는', '는'])
 ```
 
-If the `tokenString` does not start with a tokens, `resolve()` returns `null`.
+If the `tokenString` does not start with a token, `resolve()` returns `null`.
 
 ```js
 expect(resolve('모른다', '당신')).toBeNull()
@@ -126,7 +126,7 @@ expect(resolve('(아)하', '당신')).toBeNull()
 
 ### `(이)` token
 
-The `(이)` token represents "이" _ending_ (어미), not a whole postposition. When the placeholder before the `(이)` token ends without a _final consonant_ (종성), it simply removes itself. Otherwise, the token becomes `이`. As a result, `(이)` can be used in conjunction with other characters to form almost all postpositions. For examples:
+The `(이)` token represents "이" _ending_ (어미), not an entire postposition. If the placeholder before the `(이)` token ends without a _final consonant_ (종성), the token simply removes itself. Otherwise, the token becomes `이`. As a result, `(이)` can be used in conjunction with other characters to form almost all postpositions. See the following examples:
 
 - (이)랑: 한국이랑, 독일이랑, 러시아랑
 - (이)더라: 한국이더라, 독일이더라, 러시아더라
