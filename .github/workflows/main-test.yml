@@ -17,11 +17,17 @@ jobs:
       - uses: pnpm/action-setup@v2
         with:
           version: 8
-          run_install: false
       - uses: actions/setup-node@v3
         with:
+          node-version: 18.x
           cache: 'pnpm'
-          node-version: 18
       - run: pnpm i
       - run: pnpm test
       - run: pnpm build
+
+      - uses: changesets/action@v1
+        with:
+          publish: pnpm changeset publish
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
