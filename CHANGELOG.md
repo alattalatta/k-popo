@@ -1,5 +1,12 @@
 # k-popo
 
+## 2.0.1
+
+### Patch Changes
+
+- dbb4eb5: Update dependencies
+- b64aae6: Improve README grammar
+
 ## 2.0.0
 
 ### Major Changes
