@@ -1,6 +1,6 @@
 {
   "name": "k-popo",
-  "description": "Fast and small Korean postposition resolver with a pleasant API",
+  "description": "Fast and small Korean postposition resolver featuring a pleasant API",
   "license": "MIT",
   "version": "2.0.0",
   "homepage": "https://github.com/alattalatta/k-popo",
@@ -29,19 +29,19 @@
   },
   "sideEffects": false,
   "devDependencies": {
-    "@alattalatta/eslint-config": "latest",
-    "@alattalatta/prettier-config": "latest",
-    "@changesets/cli": "^2.26.1",
-    "@parcel/core": "^2.8.3",
-    "@parcel/packager-ts": "^2.8.3",
-    "@parcel/transformer-typescript-types": "^2.8.3",
-    "@swc-node/register": "^1.6.5",
-    "ava": "^5.2.0",
-    "eslint": "^8.40.0",
+    "@alattalatta/eslint-config": "^2.0.1",
+    "@alattalatta/prettier-config": "^2.0.0",
+    "@changesets/cli": "^2.26.2",
+    "@parcel/core": "^2.9.3",
+    "@parcel/packager-ts": "^2.9.3",
+    "@parcel/transformer-typescript-types": "^2.9.3",
+    "@swc-node/register": "^1.6.6",
+    "ava": "^5.3.1",
+    "eslint": "^8.45.0",
     "eslint-import-resolver-typescript": "^3.5.5",
-    "parcel": "^2.8.3",
-    "prettier": "^2.8.8",
-    "typescript": "^5.0.4"
+    "parcel": "^2.9.3",
+    "prettier": "^3.0.0",
+    "typescript": "^5.1.6"
   },
   "prettier": "@alattalatta/prettier-config",
   "keywords": [
@@ -52,5 +52,5 @@
     "한글",
     "조사"
   ],
-  "packageManager": "pnpm@8.5.0"
+  "packageManager": "pnpm@8.6.8"
 }
