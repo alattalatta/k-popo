@@ -1,5 +1,11 @@
 # k-popo
 
+## 2.0.2
+
+### Patch Changes
+
+- 455857e: Migrate to Vite + Vitest
+
 ## 2.0.1
 
 ### Patch Changes
