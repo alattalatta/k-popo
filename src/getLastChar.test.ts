@@ -1,14 +1,14 @@
-import test from 'ava'
+import { expect, test } from 'vitest'
 
 import { getLastChar } from './getLastChar'
 
-test('Can get the last character of a string', (t) => {
-  t.is(getLastChar('hello'), 'o')
-  t.is(getLastChar('hello(apple)'), 'o')
-  t.is(getLastChar("hello(apple)'"), 'o')
-  t.is(getLastChar('hello(apple)"'), 'o')
-  t.is(getLastChar('hell"o"'), 'o')
-  t.is(getLastChar(`'hello'`), 'o')
-  t.is(getLastChar(`hello('apple')`), 'o')
-  t.is(getLastChar(`'hello'(apple)`), 'o')
+test('Can get the last character of a string', () => {
+  expect(getLastChar('hello')).toBe('o')
+  expect(getLastChar('hello(apple)')).toBe('o')
+  expect(getLastChar("hello(apple)'")).toBe('o')
+  expect(getLastChar('hello(apple)"')).toBe('o')
+  expect(getLastChar('hell"o"')).toBe('o')
+  expect(getLastChar(`'hello'`)).toBe('o')
+  expect(getLastChar(`hello('apple')`)).toBe('o')
+  expect(getLastChar(`'hello'(apple)`)).toBe('o')
 })
