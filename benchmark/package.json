@@ -19,5 +19,6 @@
     "k-popo": "workspace:^",
     "kopo": "^1.1.8",
     "typescript": "^5.3.3"
-  }
+  },
+  "version": null
 }
