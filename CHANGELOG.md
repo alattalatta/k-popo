@@ -1,5 +1,11 @@
 # k-popo
 
+## 2.0.3
+
+### Patch Changes
+
+- dd64a7e: Shave a few bytes
+
 ## 2.0.2
 
 ### Patch Changes
