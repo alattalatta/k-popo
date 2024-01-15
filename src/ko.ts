@@ -18,7 +18,6 @@ type Parameter = string | readonly [display: string, pronunciation: string]
  */
 const ko = (template: Readonly<TemplateStringsArray>, ...words: readonly Parameter[]): string =>
   words.reduce<string>((acc, word, index) => {
-    // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
     let withoutPronunciation = '' + word === word // typeof string
 
     // template is always 1 length longer, this should be safe

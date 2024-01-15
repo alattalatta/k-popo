@@ -8,6 +8,7 @@ module.exports = {
   extends: ['@alattalatta/eslint-config'],
   rules: {
     'prefer-const': 'off',
+    '@typescript-eslint/restrict-plus-operands': 'off',
   },
   parserOptions: {
     project: [tsconfig],
