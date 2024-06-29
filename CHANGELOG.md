@@ -1,5 +1,11 @@
 # k-popo
 
+## 2.0.4
+
+### Patch Changes
+
+- ad63f96: Add exports.types to package.json
+
 ## 2.0.3
 
 ### Patch Changes
